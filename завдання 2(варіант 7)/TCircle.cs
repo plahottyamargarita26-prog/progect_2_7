@@ -1,0 +1,84 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace завдання_2_варіант_7_
+{
+    internal class TCircle
+    {
+        protected double r;
+
+        public TCircle()
+        {
+            r = 1;
+        }
+
+        public TCircle(double r)
+        {
+            this.r = r;
+        }
+
+        public TCircle(TCircle c)
+        {
+            r = c.r;
+        }
+
+        public override string ToString()
+        {
+            return "Радіус = " + r;
+        }
+        public void Input()
+        {
+            Console.WriteLine("Введіть радіус кола:");
+            r = double.Parse(Console.ReadLine());
+        }
+        public void Output()
+        {
+            Console.WriteLine(ToString());
+            Console.WriteLine("Площа круга = " + Area());
+            Console.WriteLine("Довжина кола = " + Length());
+        }
+
+        public double Area()
+        {
+            return Math.PI * r * r;
+        }
+
+        public double SectorArea(double angle)
+        {
+            return Math.PI * r * r * angle / 360;
+        }
+
+        public double Length()
+        {
+            return 2 * Math.PI * r;
+        }
+
+        public bool IsBigger(TCircle c)
+        {
+            return r > c.r;
+        }
+
+        public static TCircle operator +(TCircle a, TCircle b)
+        {
+            return new TCircle(a.r + b.r);
+        }
+
+        public static TCircle operator -(TCircle a, TCircle b)
+        {
+            return new TCircle(Math.Abs(a.r - b.r));
+        }
+
+        public static TCircle operator *(TCircle a, double k)
+        {
+            return new TCircle(a.r * k);
+        }
+
+        public static TCircle operator *(double k, TCircle a)
+        {
+            return new TCircle(a.r * k);
+        }
+    }
+}
