@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,18 +27,18 @@ namespace завдання_2_варіант_7_
 
         public override string ToString()
         {
-            return "Радіус = " + r;
+            return "Radius = " + r;
         }
-        public void Input()
+        public virtual void Input()
         {
-            Console.WriteLine("Введіть радіус кола:");
+            Console.WriteLine("Enter the radius of the circle:");
             r = double.Parse(Console.ReadLine());
         }
-        public void Output()
+        public virtual void Output()
         {
             Console.WriteLine(ToString());
-            Console.WriteLine("Площа круга = " + Area());
-            Console.WriteLine("Довжина кола = " + Length());
+            Console.WriteLine("Area of ​​a circle = " + Area());
+            Console.WriteLine("Circuit = " + Length());
         }
 
         public double Area()
