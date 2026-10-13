@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,20 +27,20 @@ namespace завдання_2_варіант_7_
 
         public override string ToString()
         {
-            return base.ToString() + ", висота = " + h;
+            return base.ToString() + ", height = " + h;
         }
-        public new void Input()
+        public override void Input()
         {
             base.Input();
-            Console.WriteLine("Введіть висоту конуса:");
+            Console.WriteLine("Enter the height of the cone:");
             h = double.Parse(Console.ReadLine());
         }
 
-        // Виведення даних
-        public new void Output()
+
+        public override void Output()
         {
             Console.WriteLine(ToString());
-            Console.WriteLine("Об'єм конуса = " + Volume());
+            Console.WriteLine("Volume of a cone = " + Volume());
         }
 
         public double Volume()
