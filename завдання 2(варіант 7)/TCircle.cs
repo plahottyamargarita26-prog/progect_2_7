@@ -17,6 +17,8 @@ namespace завдання_2_варіант_7_
 
         public TCircle(double r)
         {
+            if (r <= 0)
+                throw new ArgumentException("Radius must be greater than zero");
             this.r = r;
         }
 
@@ -33,6 +35,8 @@ namespace завдання_2_варіант_7_
         {
             Console.WriteLine("Enter the radius of the circle:");
             r = double.Parse(Console.ReadLine());
+            if (r <= 0)
+                throw new ArgumentException("Radius must be greater than zero");
         }
         public virtual void Output()
         {
@@ -55,10 +59,17 @@ namespace завдання_2_варіант_7_
         {
             return 2 * Math.PI * r;
         }
-
-        public bool IsBigger(TCircle c)
+        public override bool Equals(object obj)
         {
-            return r > c.r;
+            if (obj is TCircle c)
+                return r == c.r;
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return r.GetHashCode();
         }
 
         public static TCircle operator +(TCircle a, TCircle b)
