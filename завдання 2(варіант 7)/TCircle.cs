@@ -61,6 +61,8 @@ namespace завдання_2_варіант_7_
         }
         public override bool Equals(object obj)
         {
+            if (obj == null)
+                return false;
             if (obj is TCircle c)
                 return r == c.r;
 
