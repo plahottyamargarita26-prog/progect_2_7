@@ -13,6 +13,8 @@ namespace завдання_2_варіант_7_
         public TCone() : base()
         {
             h = 1;
+            if (h <= 0)
+                throw new ArgumentException("height must be greater than zero");
         }
 
         public TCone(double r, double h) : base(r)
@@ -34,6 +36,9 @@ namespace завдання_2_варіант_7_
             base.Input();
             Console.WriteLine("Enter the height of the cone:");
             h = double.Parse(Console.ReadLine());
+            if (h <= 0)
+                throw new ArgumentException("height must be greater than zero");
+
         }
 
 
