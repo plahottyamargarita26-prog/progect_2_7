@@ -19,7 +19,9 @@ namespace завдання_2_варіант_7_
             c2.Output();
             c3.Output();
 
+
             Console.WriteLine("Area of ​​a sector: " + c1.SectorArea(90));
+            Console.WriteLine("Equals null: " + c1.Equals(null));
             Console.WriteLine("Is c1 greater than c2? " + c1.Equals(c2));
             Console.WriteLine("c1 + c2: " + (c1 + c2));
             Console.WriteLine("c1 - c2: " + (c1 - c2));
