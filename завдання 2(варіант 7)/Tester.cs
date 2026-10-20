@@ -6,51 +6,34 @@ using System.Threading.Tasks;
 
 namespace завдання_2_варіант_7_
 {
-    internal class TCone : TCircle
+    internal class Tester
     {
-        protected double h;
-
-        public TCone() : base()
+        public void Test()
         {
-            h = 1;
-            if (h <= 0)
-                throw new ArgumentException("height must be greater than zero");
-        }
+            TCircle c1 = new TCircle(3);
+            TCircle c2 = new TCircle(5);
+            TCircle c3 = new TCircle(c1);
 
-        public TCone(double r, double h) : base(r)
-        {
-            this.h = h;
-        }
+            c1.Input();
+            c1.Output();
+            c2.Output();
+            c3.Output();
 
-        public TCone(TCone c) : base(c)
-        {
-            h = c.h;
-        }
+            Console.WriteLine("Area of ​​a sector: " + c1.SectorArea(90));
+            Console.WriteLine("Is c1 greater than c2? " + c1.Equals(c2));
+            Console.WriteLine("c1 + c2: " + (c1 + c2));
+            Console.WriteLine("c1 - c2: " + (c1 - c2));
+            Console.WriteLine("c1 * 2: " + (c1 * 2));
+            Console.WriteLine("2 * c1: " + (2 * c1));
+            Console.WriteLine("Copy of c1: " + c3);
 
-        public override string ToString()
-        {
-            return base.ToString() + ", height = " + h;
-        }
-        public override void Input()
-        {
-            base.Input();
-            Console.WriteLine("Enter the height of the cone:");
-            h = double.Parse(Console.ReadLine());
-            if (h <= 0)
-                throw new ArgumentException("height must be greater than zero");
-
-        }
-
-
-        public override void Output()
-        {
-            Console.WriteLine(ToString());
-            Console.WriteLine("Volume of a cone = " + Volume());
-        }
-
-        public double Volume()
-        {
-            return Math.PI * r * r * h / 3;
+            TCone cone = new TCone();
+            cone.Input();
+            cone.Output();
+            TCone cone2 = new TCone(cone);
+            Console.WriteLine("Copy of cone: " + cone2);
+            TCone cone3 = new TCone(3, 5);
+            cone3.Output();
         }
     }
 }
